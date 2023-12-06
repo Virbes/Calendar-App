@@ -70,3 +70,10 @@ body {
     position: fixed;
     right: 35px;
 }
+
+.fab-danger {
+    bottom: 25px;
+    padding: 10px;
+    position: fixed;
+    left: 35px;
+}
