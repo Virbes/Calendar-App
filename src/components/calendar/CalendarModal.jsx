@@ -6,7 +6,7 @@ import moment from 'moment/moment';
 import Swal from 'sweetalert2';
 
 import { uiCloseModal } from '../../actions/ui';
-import { eventClearActiveEvent, eventUpdated, startAddNewEvent } from '../../actions/events';
+import { eventClearActiveEvent, startAddNewEvent, startUpdateEvent } from '../../actions/events';
 
 import 'react-datetime-picker/dist/DateTimePicker.css';
 import 'react-calendar/dist/Calendar.css';
@@ -38,9 +38,11 @@ const initEvent = {
 
 export const CalendarModal = () => {
 
+    const dispatch = useDispatch();
+
     const { modalOpen } = useSelector(state => state.ui);
     const { activeEvent } = useSelector(state => state.calendar);
-    const dispatch = useDispatch();
+
 
     const [dateStart, setDateStart] = useState(now.toDate());
     const [dateEnd, setDateEnd] = useState(now__1.toDate());
@@ -94,7 +96,6 @@ export const CalendarModal = () => {
     const handleSubmitForm = (e) => {
         e.preventDefault();
 
-
         const momentStart = moment(start);
         const momentEnd = moment(end);
 
@@ -108,7 +109,7 @@ export const CalendarModal = () => {
 
 
         if (activeEvent) {
-            dispatch(eventUpdated(formValues));
+            dispatch(startUpdateEvent(formValues));
         } else {
             dispatch(startAddNewEvent(formValues));
         }
@@ -182,7 +183,11 @@ export const CalendarModal = () => {
 
                     <button
                         type="submit"
-                        className="btn btn-outline-primary btn-block"
+                        className={`
+                            btn 
+                            btn-outline-primary 
+                            btn-block
+                        `}
                     >
                         <i className="far fa-save"></i>
                         <span> Guardar</span>

@@ -4,4 +4,4 @@ import { CalendarApp } from './CalendarApp';
 
 import './styles.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(<CalendarApp />);;
+ReactDOM.createRoot(document.getElementById('root')).render(<CalendarApp />);

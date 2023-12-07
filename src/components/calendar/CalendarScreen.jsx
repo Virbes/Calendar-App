@@ -10,7 +10,7 @@ import { CalendarModal } from './CalendarModal';
 import { uiOpenModal } from '../../actions/ui';
 import { eventClearActiveEvent, eventSetActive, startEventsLoading } from '../../actions/events';
 import { AddNewFab } from '../ui/AddNewFab';
-import { DeleteEventFav } from '../ui/DeleteEventFav';
+import { DeleteEventFab } from '../ui/DeleteEventFab';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'moment/locale/es';
@@ -48,9 +48,7 @@ export const CalendarScreen = () => {
     }
 
     const eventStyleGetter = (event, start, end, isSelected) => {
-
-        console.log(event);
-
+        
         const style = {
             backgroundColor: uid === event.user._id ? '#367CF7': '#465660',
             opacity: 0.8,
@@ -86,7 +84,7 @@ export const CalendarScreen = () => {
 
             {
                 activeEvent &&
-                <DeleteEventFav />
+                <DeleteEventFab />
             }
 
             <AddNewFab />
